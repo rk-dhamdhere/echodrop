@@ -7,7 +7,22 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="app-container">
+    <div id="onboarding-overlay" class="onboarding-overlay">
+        <div class="onboarding-content">
+            <h1>Echo<span>Drop</span></h1>
+            <p>Offline Disaster Resilience</p>
+            
+            <div class="input-group">
+                <input type="text" id="setup-name" placeholder="Enter your full name" autocomplete="off">
+            </div>
+            
+            <button id="btn-complete-setup" class="action-btn btn-mule" style="font-size: 1.2rem; padding: 15px;">
+                Continue
+            </button>
+        </div>
+    </div>
+
+        <div class="app-container">
         <header class="app-header">
             <h1>EchoDrop</h1>
             <div id="user-display-name">Hello, Survivor</div>
@@ -45,6 +60,214 @@
             <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/><circle cx="12" cy="12" r="10"/></svg>
         </button>
     </div>
+
+ <section id="view-guides" class="sub-page hidden">
+    <header class="sub-page-header">
+        <button class="btn-back" id="btn-back-guides">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            BACK
+        </button>
+        <h2>Survival Guides</h2>
+    </header>
+
+    <div class="scroll-content">
+        <h3 class="section-title">DISASTER PROTOCOLS</h3>
+        
+        <details class="guide-accordion">
+            <summary>Flood Protocol</summary>
+            <div class="guide-content">
+                <ul>
+                    <li>Move to the highest floor or roof immediately.</li>
+                    <li>Disconnect the main electrical switch.</li>
+                    <li>Do not walk through moving water (6 inches can sweep you away).</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="guide-accordion">
+            <summary>Cyclone Protocol</summary>
+            <div class="guide-content">
+                <ul>
+                    <li>Stay indoors, away from all windows and glass.</li>
+                    <li>Move to an interior hallway or bathroom.</li>
+                    <li>Keep your phone on maximum battery saver mode.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="guide-accordion">
+            <summary>Earthquake Protocol</summary>
+            <div class="guide-content">
+                <ul>
+                    <li>Drop, Cover, and Hold On under a sturdy desk or table.</li>
+                    <li>Stay away from glass, windows, outside doors and walls.</li>
+                    <li>If outdoors, move to an open area away from trees, buildings, and power lines.</li>
+                </ul>
+            </div>
+        </details>
+
+        <h3 class="section-title">FIRST AID</h3>
+        
+        <details class="guide-accordion">
+            <summary>Severe Bleeding</summary>
+            <div class="guide-content">
+                <ul>
+                    <li>Apply firm, direct pressure to the wound with a clean cloth.</li>
+                    <li>Keep pressing continuously for at least 5 minutes.</li>
+                    <li>Elevate the injured area above the heart if possible.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="guide-accordion">
+            <summary>Broken Bones</summary>
+            <div class="guide-content">
+                <ul>
+                    <li>Do not attempt to realign the bone.</li>
+                    <li>Immobilize the area using rolled-up magazines or thick cloth as a splint.</li>
+                    <li>Apply a cold pack wrapped in cloth to reduce swelling.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details class="guide-accordion">
+            <summary>Severe Burns</summary>
+            <div class="guide-content">
+                <ul>
+                    <li>Cool the burn under cool (not cold) running water for 10 to 15 minutes.</li>
+                    <li>Remove rings or tight items from the burned area immediately.</li>
+                    <li>Cover the area loosely with sterile, non-fluffy gauze.</li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</section>
+
+<section id="view-tools" class="sub-page hidden">
+    <header class="sub-page-header">
+        <button class="btn-back" id="btn-back-tools">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            BACK
+        </button>
+        <h2>Emergency Tools</h2>
+    </header>
+
+    <div class="tools-container">
+        <button class="tool-btn" id="toggle-flashlight">
+            <svg class="tool-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            <span>TURN ON FLASHLIGHT</span>
+        </button>
+
+        <button class="tool-btn" id="toggle-whistle">
+            <svg class="tool-icon" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            <span>SOUND WHISTLE</span>
+        </button>
+    </div>
+</section>
+
+<section id="view-checklist" class="sub-page hidden">
+    <header class="sub-page-header">
+        <button class="btn-back" id="btn-back-checklist">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            BACK
+        </button>
+        <h2>Supply Checklist</h2>
+    </header>
+
+    <div class="scroll-content">
+        <p style="margin-bottom: 1.5rem; color: #9CA3AF; font-size: 1rem; line-height: 1.4;">
+            Tap the items you critically need. This list will be securely attached to your offline SOS broadcast.
+        </p>
+        
+        <div class="checklist-container">
+            <button class="check-btn" data-item="needs_food">Food</button>
+            <button class="check-btn" data-item="needs_water">Water</button>
+            <button class="check-btn" data-item="needs_clothes">Clothes</button>
+            <button class="check-btn" data-item="needs_medicine">Medicine</button>
+            <button class="check-btn" data-item="needs_powerbank">Powerbank</button>
+        </div>
+
+        <button class="action-btn btn-mule" id="btn-confirm-checklist" style="margin-top: 2rem; font-size: 1.5rem; padding: 15px;">
+            CONFIRM
+        </button>
+    </div>
+</section>
+
+<section id="view-tips" class="sub-page hidden">
+    <header class="sub-page-header">
+        <button class="btn-back" id="btn-back-tips">
+            <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="3" fill="none"><polyline points="15 18 9 12 15 6"></polyline></svg>
+            BACK
+        </button>
+        <h2>Survival Tips</h2>
+    </header>
+
+    <div class="scroll-content">
+        <div class="tip-card">
+            <div class="tip-number">01</div>
+            <div class="tip-text">
+                <strong>Purify All Water</strong>
+                Boil any tap or flood water for at least 1 full minute before drinking to avoid waterborne diseases like cholera.
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <div class="tip-number">02</div>
+            <div class="tip-text">
+                <strong>Conserve Battery</strong>
+                Turn your phone to ultra battery saver mode, dim the screen to the lowest legible setting, and disable background data.
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <div class="tip-number">03</div>
+            <div class="tip-text">
+                <strong>Electrical Hazards</strong>
+                Never touch wet electrical switches or panels. If water enters your home, turn off the main breaker immediately.
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <div class="tip-number">04</div>
+            <div class="tip-text">
+                <strong>Beware of Wildlife</strong>
+                Rising floodwaters displace snakes and insects. Tap the ground with a stick before stepping and check inside shoes.
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <div class="tip-number">05</div>
+            <div class="tip-text">
+                <strong>Food Safety</strong>
+                Discard any food, even canned goods, that has come into direct contact with floodwater. 
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <div class="tip-number">06</div>
+            <div class="tip-text">
+                <strong>Stay Dry & Warm</strong>
+                Hypothermia can happen even in warm Indian climates if you remain wet for hours. Prioritize keeping your core dry.
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <div class="tip-number">07</div>
+            <div class="tip-text">
+                <strong>Visual Signaling</strong>
+                If trapped on a roof, hang brightly colored clothes or use a mirror/glass to reflect sunlight at passing rescue helicopters.
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <div class="tip-number">08</div>
+            <div class="tip-text">
+                <strong>Structural Safety</strong>
+                During a cyclone, stay away from all glass windows. Keep interior doors closed and brace exterior doors if possible.
+            </div>
+        </div>
+    </div>
+</section>
 
     <script src="js/app.js"></script>
 </body>

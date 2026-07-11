@@ -32,6 +32,7 @@ body {
     padding: 1rem;
     position: relative;
     height: 100%;
+    overflow-y: auto; /* Adds scrolling only to the main container */
 }
 
 /* --- Header --- */
@@ -125,4 +126,270 @@ body {
     width: 32px;
     height: 32px;
     color: var(--bg-black);
+}
+
+/* --- Onboarding Overlay --- */
+.onboarding-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-black);
+    z-index: 9999; /* Keeps it on top of EVERYTHING */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Hide the overlay when setup is done */
+.onboarding-overlay.hidden {
+    display: none;
+}
+
+.onboarding-content {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.onboarding-content h1 {
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+.onboarding-content h1 span {
+    color: var(--action-red);
+}
+
+.onboarding-content p {
+    color: var(--text-muted);
+    margin-bottom: 40px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--grid-card-bg);
+    border: 2px solid #333;
+    border-radius: 12px;
+    color: var(--text-white);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    outline: none;
+    text-align: center;
+}
+
+.input-group input:focus {
+    border-color: var(--action-green);
+}
+
+.disclaimer {
+    font-size: 0.85rem !important;
+    margin-top: 15px;
+}
+
+/* --- Sub-Page Global Styling --- */
+.sub-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-black);
+    z-index: 100; /* Sits on top of the dashboard */
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.sub-page.hidden {
+    display: none !important;
+}
+
+.sub-page-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #333;
+}
+
+.btn-back {
+    background: none;
+    border: none;
+    color: var(--action-red);
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.btn-back svg {
+    width: 24px;
+    height: 24px;
+}
+
+.sub-page-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-white);
+}
+
+.scroll-content {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 2rem;
+}
+
+.section-title {
+    color: var(--action-green);
+    font-size: 1.1rem;
+    margin: 1.5rem 0 1rem 0;
+    letter-spacing: 1px;
+}
+
+/* --- Native HTML5 Accordion Styling --- */
+.guide-accordion {
+    margin-bottom: 1rem;
+    background-color: var(--grid-card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.guide-accordion summary {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 1.25rem;
+    cursor: pointer;
+    list-style: none; /* Hides default triangle */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.guide-accordion summary::-webkit-details-marker {
+    display: none; /* Hides default triangle in Safari */
+}
+
+/* Add a custom plus sign that rotates when open */
+.guide-accordion summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    color: var(--text-white);
+    transition: transform 0.2s ease;
+}
+
+.guide-accordion[open] summary::after {
+    transform: rotate(45deg); /* Turns plus into an X */
+    color: var(--action-red);
+}
+
+.guide-content {
+    padding: 0 1.25rem 1.25rem 1.25rem;
+    color: #D1D5DB; /* Slightly muted white for easier reading */
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.guide-content ul {
+    padding-left: 1.5rem;
+}
+
+.guide-content li {
+    margin-bottom: 0.75rem;
+}
+/* --- Checklist UI --- */
+.checklist-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.check-btn {
+    background-color: var(--grid-card-bg);
+    color: var(--text-white);
+    border: 2px solid #333;
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.1s, color 0.1s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Empty Checkbox State */
+.check-btn::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    border: 2px solid #666; 
+    border-radius: 6px; /* Square instead of circle */
+}
+
+/* Active Selected State */
+.check-btn.selected {
+    background-color: var(--action-green);
+    color: var(--bg-black);
+    border-color: var(--action-green);
+}
+
+/* Filled Checkbox with Tickmark */
+.check-btn.selected::after {
+    content: '\2714'; /* Unicode Heavy Check Mark */
+    border-color: var(--bg-black);
+    background-color: var(--bg-black);
+    color: var(--action-green);
+}
+
+/* --- Tips UI --- */
+.tip-card {
+    background-color: var(--grid-card-bg);
+    border-radius: 16px;
+    padding: 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    border: 1px solid #333;
+}
+
+.tip-number {
+    background-color: #374151; /* Dark Grey Badge */
+    color: var(--action-white);
+    font-size: 1rem;
+    font-weight: 900;
+    padding: 0.5rem;
+    border-radius: 8px;
+    flex-shrink: 0;
+    line-height: 1;
+    letter-spacing: 1px;
+    border: 1px solid #4B5563;
+}
+
+.tip-text {
+    color: #D1D5DB;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.tip-text strong {
+    color: var(--text-white);
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.5px;
 }
