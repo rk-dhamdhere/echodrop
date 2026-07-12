@@ -1,7 +1,7 @@
 # backend/ai/agent.py
 import os
 import json
-from tools import check_isro_bhuvan_risk, evaluate_medical_urgency
+from backend.ai.tools import check_isro_bhuvan_risk, evaluate_medical_urgency
 from dotenv import load_dotenv
 
 from google import genai
@@ -35,7 +35,7 @@ def triage_sos_payload(payload: dict) -> dict:
     
     try:
         chat = client.chats.create(
-            model='gemini-2.5-flash',
+            model='gemini-2.0-flash',
             config=types.GenerateContentConfig(
                 tools=[check_isro_bhuvan_risk, evaluate_medical_urgency],
                 system_instruction=system_instruction,
