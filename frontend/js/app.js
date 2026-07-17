@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
         initApp();
     }
 
-    // --- MAIN INITIALIZATION ---
+// --- MAIN INITIALIZATION ---
     function initApp() {
         const savedName = localStorage.getItem('echoDrop_userName');
         if (nameDisplay) {
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
         setupTools();
         setupChecklist();
         setupTips();
+        setupMuleMode(); // <--- ADD THIS LINE!
     }
 
     // --- 1. GUIDES NAVIGATION ---
@@ -270,4 +271,40 @@ document.addEventListener('DOMContentLoaded', () => {
             fabMap.style.display = 'flex';
         });
     }
+
+    // --- MULE MODE (RESCUER SCANNING) ---
+    function setupMuleMode() {
+        const viewMuleActive = document.getElementById('view-mule-active');
+        const btnMule = document.getElementById('btn-can-help'); // Main dashboard green button
+        const btnStopMule = document.getElementById('btn-stop-mule');
+        
+        const header = document.querySelector('.app-header');
+        const grid = document.querySelector('.survival-grid');
+        const actionZone = document.querySelector('.action-zone');
+        const fabMap = document.getElementById('btn-map');
+
+        // Start Scanning
+        btnMule.addEventListener('click', () => {
+            header.style.display = 'none';
+            grid.style.display = 'none';
+            actionZone.style.display = 'none';
+            fabMap.style.display = 'none';
+            
+            viewMuleActive.classList.remove('hidden');
+
+            console.log("MULE MODE ACTIVE: Scanning for victim payloads via local backend...");
+            // TODO: Trigger your backend/Bluetooth listening script here
+        });
+
+        // Stop Scanning
+        btnStopMule.addEventListener('click', () => {
+            viewMuleActive.classList.add('hidden');
+            header.style.display = '';
+            grid.style.display = '';
+            actionZone.style.display = '';
+            fabMap.style.display = 'flex';
+            console.log("Scanning Stopped.");
+        });
+    }
+
 });
