@@ -1,29 +1,42 @@
-# echodrop
-Offline-first disaster request mapping system for low-connectivity environments.
-EchoDrop - Disaster Resilience System
+EchoDrop 
+Offline Disaster Resilience
 
-EchoDrop is an offline-first disaster response platform designed to facilitate emergency request mapping in zero-connectivity environments. By utilizing a peer-to-peer "Data Mule" synchronization strategy and automated AI triage, it ensures rescue coordinators can prioritize and locate vulnerable populations without relying on cellular or internet infrastructure.
+HACK4HUMANITY 2026 | AI for Societal Good (Theme C: Disaster Relief)
 
-Project Structure
+Team: Project Akatsuki (Rishikesh Dhamdhere, Rohan Ayare, Sohan Darde, Tanmay Madhavi)
 
-backend/: FastAPI implementation with MCP-enabled AI triage logic.
+ https://drive.google.com/file/d/1C0iwccmdRgR6n-ITHxoWwuMKZcrNEr89/view?usp=drive_link
+ The Problem & Our Solution
 
-frontend/: Vanilla HTML5/JS frontend designed for PWA-caching in disaster zones.
+The Problem: During severe natural disasters (floods, cyclones, earthquakes), primary communication infrastructure like cell towers and internet lines are the first to fail. Displaced families and vulnerable populations are left isolated, unable to communicate their exact location or critical medical needs to rescue teams. Modern rescue applications often fail the common Indian citizen because they require active bandwidth or expensive hardware.
 
-Core Features
+The Solution: EchoDrop is a purely offline-first disaster survival and coordination application. Designed specifically for low-cost hardware and zero-bandwidth environments, EchoDrop empowers local citizens to act as grassroots first responders. It bridges the communication gap by directly connecting stranded victims with nearby rescuers without relying on a single cell tower.
+🛠 Tech Stack
 
-Offline Triage: Local SQLite database for disaster-proof storage.
+EchoDrop is built to be lightweight, fast, and completely sustainable in offline conditions:
 
-Peer-to-Peer Sync: Bluetooth-based data muling for victim-to-rescuer data transfer.
+    Frontend: HTML5, CSS3 (Utilizing Dynamic Viewport 100dvh for seamless mobile scaling without clipping).
 
-AI Grounding: ISRO Bhuvan-grounded Gemini triage for emergency prioritization.
+    Logic: Vanilla JavaScript (Zero external heavy frameworks to ensure instant load times).
 
-Offline Maps: Cached Leaflet.js tiles for basecamp coordination.
+    State Management: Native Browser LocalStorage (Ensures state and payload data survive device reboots/crashes).
 
-Getting Started
+    Backend / Edge Database: SQLite (Designed to securely log and query discovered victim payloads locally).
 
-Navigate to /backend and install dependencies: pip install -r requirements.txt
+ Application Workflow
 
-Run the server: python main.py
+    Onboarding & Caching: Upon first launch, the user enters their details and the app locks onto their GPS coordinates. This data is instantly cached locally.
 
-Open frontend/index.html to initiate victim SOS mode.
+    Survival Grid (Always Available): Users have immediate offline access to disaster protocols, first-aid guides, and utility tools (like a camera-flash SOS and an audio oscillator whistle).
+
+    Victim Mode ("I NEED HELP"): The user selects critical needs (Food, Water, Medicine) from a checklist. The app compiles this, alongside their cached GPS and device ID, into a structured JSON payload ready for offline broadcast.
+
+    Mule Mode ("I CAN HELP"): Rescuers activate the scanning interface. The app listens for nearby offline distress beacons, allowing the rescuer to see who needs help and exactly what supplies they require.
+
+Current Limitations & Incompletion (Transparency Disclosure)
+
+In alignment with the HACK4HUMANITY mandate for honest documentation and real-world feasibility, we are disclosing the current prototype boundaries:
+
+    Fully Complete: The mobile-responsive UI, offline caching mechanisms, utility tools, and the JSON GPS payload generation logic are 100% functional.
+
+    Currently Simulated (Incomplete): The active Bluetooth Low Energy (BLE) / Wi-Fi Direct hardware bridging is simulated in this current prototype phase. While the frontend successfully generates the payload and the "Mule" UI actively scans, the physical peer-to-peer passing of the SQLite database between two distinct mobile devices requires native bridging (e.g., via a React Native/Flutter wrapper or Android Intents) which is slated for our post-hackathon deployment roadmap.
