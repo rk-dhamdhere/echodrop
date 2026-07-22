@@ -5,7 +5,7 @@ HACK4HUMANITY 2026 | AI for Societal Good (Theme C: Disaster Relief)
 
 Team: Project Akatsuki (Rishikesh Dhamdhere, Rohan Ayare, Sohan Darde, Tanmay Madhavi)
 
- https://drive.google.com/file/d/1C0iwccmdRgR6n-ITHxoWwuMKZcrNEr89/view?usp=drive_link
+https://youtu.be/9vGuUS-i3ds
  The Problem & Our Solution
 
 The Problem: During severe natural disasters (floods, cyclones, earthquakes), primary communication infrastructure like cell towers and internet lines are the first to fail. Displaced families and vulnerable populations are left isolated, unable to communicate their exact location or critical medical needs to rescue teams. Modern rescue applications often fail the common Indian citizen because they require active bandwidth or expensive hardware.
